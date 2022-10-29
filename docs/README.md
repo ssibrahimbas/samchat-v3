@@ -9,6 +9,7 @@ The documentation of the chat application.
   - [Database Diagram](#database-diagram)
   - [Backend Diagrams](#backend-diagrams)
     - [Auth Service and Jetstream Relation](#auth-service-and-jetstream-relation)
+  - [Profile Service and Jetstream Relation](#profile-service-and-jetstream-relation)
 
 ## Database Diagram
 
@@ -25,3 +26,9 @@ Here are the diagrams of the backend.
 This is the relation between the auth service and Jetstream.
 
 ![](samchat-v3-Backend_Communication.AuthServiceAndJetstream.drawio.png)
+
+## Profile Service and Jetstream Relation
+
+This is the relation between the profile service and Jetstream.
+
+![](samchat-v3-Backend_Communication.ProfileAndJetStream.drawio.png)
