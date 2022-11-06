@@ -3,7 +3,7 @@ package validator
 import (
 	"testing"
 
-	"domain.com/shared/i18n"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
 	"github.com/stretchr/testify/assert"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

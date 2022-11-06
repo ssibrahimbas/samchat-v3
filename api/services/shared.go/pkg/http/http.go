@@ -3,9 +3,9 @@ package http
 import (
 	"encoding/json"
 
-	"domain.com/shared/i18n"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
 )
 
 type Client struct {

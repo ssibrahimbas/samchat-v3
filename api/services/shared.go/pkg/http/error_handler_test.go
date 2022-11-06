@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"domain.com/shared/i18n"
-	"domain.com/shared/result"
 	"github.com/gofiber/fiber/v2"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/result"
 	"github.com/stretchr/testify/assert"
 	"go.mongodb.org/mongo-driver/mongo"
 )

@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	ssiHttp "domain.com/shared/http"
-	"domain.com/shared/i18n"
-	"domain.com/shared/jwt"
 	"github.com/gofiber/fiber/v2"
+	ssiHttp "github.com/ssibrahimbas/samchat-v3.shared/pkg/http"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/jwt"
 	"github.com/stretchr/testify/assert"
 )
 

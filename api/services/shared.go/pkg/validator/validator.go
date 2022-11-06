@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"strings"
 
-	"domain.com/shared/i18n"
 	"github.com/go-playground/validator"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
 )
 
 type ErrorResponse struct {

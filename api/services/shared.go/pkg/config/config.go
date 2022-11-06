@@ -1,7 +1,7 @@
 package config
 
 import (
-	"domain.com/shared/helper"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/helper"
 	"go.deanishe.net/env"
 )
 

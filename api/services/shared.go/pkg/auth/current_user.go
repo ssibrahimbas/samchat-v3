@@ -1,11 +1,11 @@
 package auth
 
 import (
-	"domain.com/shared/i18n"
-	"domain.com/shared/jwt"
-	"domain.com/shared/result"
 	"github.com/gofiber/fiber/v2"
 	orgJwt "github.com/golang-jwt/jwt"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/jwt"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/result"
 )
 
 type CurrentUser struct {
