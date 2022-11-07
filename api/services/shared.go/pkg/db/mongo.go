@@ -32,10 +32,10 @@ func (m *MongoDB) GetCollection(n string) *mongo.Collection {
 	return m.db.Collection(n)
 }
 
-func (m *MongoDB) TransformId(id string) primitive.ObjectID {
+func (m *MongoDB) TransformId(id string) (primitive.ObjectID, error) {
 	i, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		panic(err)
+		return primitive.NilObjectID, err
 	}
-	return i
+	return i, nil
 }

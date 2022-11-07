@@ -45,9 +45,20 @@ func TestMongoModule(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		id := mdb.TransformId("5c9a2d9e7b4d1e0001f0d6d4")
-		if !primitive.IsValidObjectID(id.Hex()) {
+		id, err := mdb.TransformId("5c9a2d9e7b4d1e0001f0d6d4")
+		if !primitive.IsValidObjectID(id.Hex()) || err != nil {
 			t.Fatal("id is not valid")
+		}
+	})
+
+	t.Run("Test Mongo Transform Id Function With Invalid Id", func(t *testing.T) {
+		mdb, err := NewMongo("mongodb://localhost:27017", "test")
+		if err != nil {
+			t.Fatal(err)
+		}
+		id, err := mdb.TransformId("5c9a2d9e7b4d1e0001f0d6d")
+		if err == nil || id != primitive.NilObjectID {
+			t.Fatal("id should be nil")
 		}
 	})
 }
