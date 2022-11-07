@@ -1,0 +1,56 @@
+package auth
+
+import (
+	"github.com/gofiber/fiber/v2"
+	orgJwt "github.com/golang-jwt/jwt"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/i18n"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/jwt"
+	"github.com/ssibrahimbas/samchat-v3.shared/pkg/result"
+)
+
+type CurrentUser struct {
+	ID    string `json:"uuid"`
+	Email string `json:"email"`
+}
+
+type CurrentUserConfig struct {
+	Jwt    *jwt.Jwt
+	I18n   *i18n.I18n
+	MsgKey string
+}
+
+func NewCurrentUser(cnf *CurrentUserConfig) fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		t := c.Cookies("token")
+		if t == "" {
+			return c.Next()
+		}
+		res, err := cnf.Jwt.Parse(t)
+		if err != nil {
+			l := c.Locals("lang").(string)
+			a := c.Locals("accept-language").(string)
+			return result.Error(cnf.I18n.Translate(cnf.MsgKey, l, a), fiber.StatusUnauthorized)
+		}
+		p := res.Claims.(orgJwt.MapClaims)["payload"]
+		c.Locals("user", p)
+		return c.Next()
+	}
+}
+
+func ParseCurrentUser(c *fiber.Ctx, i *i18n.I18n) *CurrentUser {
+	u := c.Locals("user").(map[string]interface{})
+	id, ok := u["uuid"].(string)
+	if !ok {
+		l, a := i.GetLanguagesInContext(c)
+		panic(i.Translate("invalid_user", l, a))
+	}
+	em, ok := u["email"].(string)
+	if !ok {
+		l, a := i.GetLanguagesInContext(c)
+		panic(i.Translate("invalid_user", l, a))
+	}
+	return &CurrentUser{
+		ID:    id,
+		Email: em,
+	}
+}
