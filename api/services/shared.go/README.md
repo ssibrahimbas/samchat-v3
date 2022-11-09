@@ -13,7 +13,7 @@ Core package of the chat application.
 go test ./*/* -cover -coverprofile=coverage.out
 ```
 
-## Run Tests with Coverage
+## See Coverage
 
 ```bash
 go tool cover -html=coverage.out
