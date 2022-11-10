@@ -1,0 +1,2 @@
+validation_required = "This field is required."
+invalid_request = "The request is invalid."
